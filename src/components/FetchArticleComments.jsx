@@ -22,14 +22,14 @@ const ArticleComments = (article_id) => {
         <section className="container">
             {comments.map((comment) => {
                 return (
-                    <div key={comment.comment_id} className="items card">
-                        <article>{comment.body}</article>
-                        <p>Comment ID:  {comment.comment_id}</p>
+                    <section key={comment.comment_id} className="items">
+                        <article className="card-text">{comment.body}</article>
+                        {/*<p>Comment ID:  {comment.comment_id}</p>*/}
                         <p>Author {comment.author}</p>
-                        <p>Article ID:  {comment.article_id}</p>
-                        <p>Created on: {comment.created_at}</p>
-                        <p>Votes:  {comment.votes}</p>
-                    </div>
+                        {/*<p>Article ID:  {comment.article_id}</p>*/}
+                        <p>Votes:  {comment.votes} <span style={{float: "right"} }>Created on: {comment.created_at}</span></p>
+                        <p></p>
+                    </section>
                 )
             })}
 

@@ -6,9 +6,6 @@ import { getArticles } from './../RoutesApi'
 
 
 const ArticlesList = () => {
-
-
-    console.log('>>>> articles list all')
     const [articles, setArticles] = useState([])
 
     useEffect(() => {
@@ -27,15 +24,16 @@ const ArticlesList = () => {
             {articles.map((article) => {
 
                 return (
-                    <div key={article.article_id} className="items card w3-teal">
+                    <div key={article.article_id} className="card w3-teal">
                         <Link id="ln" to={{ pathname: `/api/articles/${article.article_id}` }} state={{ id: article.article_id }} className="link"><img src={article.article_img_url} /></Link>
-                        <p>Title: <Link id="ln" to={{ pathname: `/api/articles/${article.article_id}` }} state={{ id: article.article_id }} className="link">{article.title}</Link></p>
-                        <p>Author name: {article.author}</p>
-                        <p>Topic:  {article.topic}</p>
-                        <p>Article ID: <Link id="ln" to={{ pathname: `/api/articles/${article.article_id}` }} state={{ id:  article.article_id  }} className="link">{article.article_id}</Link> </p>
-                        <p>Created on: {article.created_at}</p>
-                        <p>Comments count: {article.comment_count}</p>
-                        <p>Votes:  {article.votes}</p>
+                        <div className="card-body">
+                            <p className="card-title">Title: <Link id="ln" to={{ pathname: `/api/articles/${article.article_id}` }} state={{ id: article.article_id }} className="link">{article.title}</Link></p>
+                            <p>Author name: {article.author}</p>
+                            <p>Topic:  {article.topic}</p>
+                            <p>Article ID: <Link id="ln" to={{ pathname: `/api/articles/${article.article_id}` }} state={{ id:  article.article_id  }} className="link">{article.article_id}</Link> </p>
+                            <p>Created on: {article.created_at}</p>
+                            <p>Comments count: {article.comment_count} &emsp; &emsp; Votes: {article.votes}</p>
+                        </div>
                     </div>
                 )
             })}

@@ -7,12 +7,7 @@ import ArticleComments from './FetchArticleComments'
 
 
 const ArticleContent = (article_id) => {
-
     const { id } = useParams()
-    console.log(id, '>>>> article content')
-
-    console.log(useParams())
-
     const [articles, setArticles] = useState([])
 
     useEffect(() => {
@@ -29,13 +24,13 @@ const ArticleContent = (article_id) => {
         <section className="container">
             {articles.map((article) => {
                 return (
-                    <>
-                        <div key={article.article_id} className="items card">
-                            <img src={article.article_img_url} />
+                    <section >
+                        <div key={article.article_id} className="items w3-teal">
                             <p>Topic: {article.topic}</p>
                             <p>Title: {article.title}</p>
                             <p>By {article.author}</p>
-                            <article>{article.body}</article>
+                            <article><img style={{width:"170px", height:"170px", margin:"0px 25px 5px 5px"}} src={article.article_img_url} />
+                            {article.body}</article>
 
                             <p>Article ID: {article.article_id}</p>
                             <p>Created on: {article.created_at}</p>
@@ -43,7 +38,7 @@ const ArticleContent = (article_id) => {
                         </div>
                         <h2>Comments for the article {article.article_id}</h2>            
                         <ArticleComments article_id={article.article_id} />
-                    </>
+                    </section>
                 )
 
             })}

@@ -40,3 +40,11 @@ export const getTopics = () => {
             console.log(err)
         })
 };
+
+export const getArticlesForTopic = (topic) => {
+    return ncNewsApi
+        .get(`/api/topics/${topic}`)
+        .catch((err) => {
+            console.log(err)
+        })
+};
