@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router'
 
 const Header = () => {
 
     console.log('>>>> Header ......')
+    //const { loogedInUser } = useContext(UserContext)
 
     return (
         <section className="container">

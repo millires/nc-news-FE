@@ -48,3 +48,11 @@ export const getArticlesForTopic = (topic) => {
             console.log(err)
         })
 };
+
+export const patchVote = (article_id) => {
+    return ncNewsApi
+        .patch(`/api/articles/${article_id}`, { "article_id": article_id, "inc_votes": 1 })
+        .catch((err) => {
+            console.log(err)
+        })
+} 

@@ -6,9 +6,6 @@ import { getTopics } from './../RoutesApi'
 
 
 const TopicsList = () => {
-
-
-    console.log('>>>> topics list all')
     const [topics, setTopics] = useState([])
 
     useEffect(() => {
